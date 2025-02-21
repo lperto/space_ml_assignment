@@ -56,4 +56,4 @@ curl -X 'POST' \
 
 ## Miscellaneous
 * Re-generate output: `python output.py`
-
+* Check the API: `python request.py`
