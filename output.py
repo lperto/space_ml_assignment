@@ -28,16 +28,19 @@ from app.features import calculate_features
 file_path = 'data/data.csv'
 
 df = load_data(file_path)
+
+# %%
 df.head()
+# %%
 
 # %%
 df_features = df.apply(
     lambda row: calculate_features(
         id=row['id'],
         application_date=row['application_date'],
-        contracts=row['contracts']
+        contracts=row['contracts'],
     ),
-    axis=1
+    axis=1,
 )
 df_features = pd.DataFrame(df_features.tolist())
 
