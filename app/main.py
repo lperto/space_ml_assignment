@@ -2,7 +2,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 
-from .features import calculate_features
+from features import calculate_features
+
 
 app = FastAPI()
 
@@ -10,12 +11,11 @@ app = FastAPI()
 class ApplicationRequest(BaseModel):
     id: str
     application_date: str
-    contracts: str
+    contracts: str | None = None
 
 
 @app.get('/')
 async def root():
-    """Redirect root endpoint to API documentation"""
     return RedirectResponse(url='/docs')
 
 
