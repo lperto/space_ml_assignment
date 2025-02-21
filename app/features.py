@@ -59,8 +59,7 @@ def get_day_sinlastloan(application_date: pd.Timestamp, df_contracts: pd.DataFra
     return day_sinlastloan
 
 
-
-def calculate_features(id: str, application_date: pd.Timestamp, contracts: str) -> dict:
+def calculate_features(id: str, application_date: pd.Timestamp, contracts: str | None = None) -> dict:
     application_date = pd.to_datetime(application_date)
     contracts_date_format = '%d.%m.%Y'
 
